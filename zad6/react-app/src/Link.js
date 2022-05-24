@@ -1,14 +1,10 @@
 import React, {Component} from
         'react';
-class ListComponent extends Component{
+class LinkComponent extends Component{
     render() {
         return (
-            <ul>
-                <li>Coffee</li>
-                <li>Tea</li>
-                <li>Milk</li>
-            </ul>
+            <a href="https://www.uj.edu.pl/">https://www.uj.edu.pl/</a>
         );
     }
 }
-export default ListComponent;
+export default LinkComponent;

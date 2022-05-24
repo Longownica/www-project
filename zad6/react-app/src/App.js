@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import TextComponent from "./Text.js";
+import Text from "./Text.js";
+import Link from "./Link";
+import List from "./List";
 
 function App() {
   return (
@@ -17,6 +21,9 @@ function App() {
         >
           Learn React
         </a>
+        <Text/>
+        <Link/>
+        <List/>
       </header>
     </div>
   );

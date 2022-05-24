@@ -3,7 +3,7 @@ import React, {Component} from
 class TextComponent extends Component{
     render() {
         return (
-            <p className="text">Przykładowy teskt</p>
+            <p className="text">Przykładowy tekst</p>
         );
     }
 }
