@@ -120,4 +120,4 @@ async def delete_game(id: str):
 
 @app.delete("/all")
 async def delete_all_games():
-    
+    pass
