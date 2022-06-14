@@ -13,8 +13,21 @@ from typing import Optional, List
 import motor.motor_asyncio
 from checkers.game import Game
 from checkers.board import Board
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 client = motor.motor_asyncio.AsyncIOMotorClient(os.environ["MONGODB_URL"])
 db = client.checkers
 games = db['games']

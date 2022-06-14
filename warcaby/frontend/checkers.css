@@ -66,7 +66,7 @@ body , html{
 }
 
 .white_checker{
-	background: #871e07;
+	background: #dddddd;
  -webkit-transition: 0.3s ease-in-out;
 	-moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
@@ -74,7 +74,7 @@ body , html{
 }
 
 .black_checker{
-	background: #170b01;
+	background: #222222;
  -webkit-transition: 0.3s ease-in-out;
 	-moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;

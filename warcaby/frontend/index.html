@@ -1,11 +1,14 @@
 <head>
     <title>Checkers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" type="text/css" href="checkers.css">
 </head>
 <body>
     <h1>Checkers</h1>
+    <h2>You are: <span id="you"></span></h2>
+    <h2>It's turn: <span id="turn"></span></h2>
     <div class="checker white_checker" style="display:none"> </div>
     <div class="checker black_checker" style="display:none"> </div>
     
@@ -17,7 +20,7 @@
         </div>
     <div class="table" id="table">
     
-        <div class="checker white_checker"> </div>
+        <!--div class="checker white_checker"> </div>
         <div class="checker white_checker"> </div>
         <div class="checker white_checker"> </div>
         <div class="checker white_checker"> </div>
@@ -41,14 +44,14 @@
         <div class="checker black_checker"> </div>
         <div class="checker black_checker"> </div>
         <div class="checker black_checker"> </div>
-        <div class="checker black_checker"> </div>
+        <div class="checker black_checker"> </div-->
     
     
         <div id="x32" class="square black_square"> </div>
         <div class="square white_square"> </div>
-        <div id="x31" class="square black_square"> </div>
+        <div id="x31" class="square black_square black_checker"> </div>
         <div class="square white_square"> </div>
-        <div id="x30" class="square black_square"> </div>
+        <div id="x30" class="square black_square white_checker"> </div>
         <div class="square white_square"> </div>
         <div id="x29" class="square black_square"> </div>
         <div class="square white_square"> </div>
@@ -129,5 +132,5 @@
     <button onclick="delete_game()">Delete game</button>
     <button onclick="delete_all()">Delete all games</button>
     <input id="move-field" type="text"><button onclick="move()">Move</button>
-    <h3>Possible moves: <span id="moves"></span></h3>
+    <h3>Possible moves [from, to]: <span id="moves"></span></h3>
 </body>
