@@ -12,6 +12,11 @@ pydantic = "^1.9.1"
 django-picklefield = "^3.0.1"
 pytest-django = "^4.5.2"
 wheel = "^0.37.1"
+fastapi = "^0.78.0"
+bson = "^0.5.10"
+motor = "^3.0.0"
+email-validator = "^1.2.1"
+uvicorn = "^0.17.6"
 
 [tool.poetry.dev-dependencies]
 
