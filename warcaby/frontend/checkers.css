@@ -9,6 +9,7 @@ body , html{
 	float: left;
 	width: 80px;
 	height: 80px;
+	color: #666666;
 }
 
 .white_square{
@@ -16,6 +17,12 @@ body , html{
 }
 .black_square{
 	background-color :#3b2802;
+}
+.king {
+	border-style: solid;
+	border-color: #ffb300;
+	border-width: 0.5rem;
+	box-sizing: border-box;
 }
 .clear_float{
 	clear: both;

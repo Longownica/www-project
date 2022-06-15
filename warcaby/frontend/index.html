@@ -9,6 +9,9 @@
     <h1>Checkers</h1>
     <h2>You are: <span id="you"></span></h2>
     <h2>It's turn: <span id="turn"></span></h2>
+    <h3>From: <span id="from"></span></h3>
+    <h3>To: <span id="to"></span></h3>
+    <h3>Finished: <span id="finished"></span></h3>
     <div class="checker white_checker" style="display:none"> </div>
     <div class="checker black_checker" style="display:none"> </div>
     
@@ -46,85 +49,86 @@
         <div class="checker black_checker"> </div>
         <div class="checker black_checker"> </div-->
     
-    
-        <div id="x32" class="square black_square"> </div>
         <div class="square white_square"> </div>
-        <div id="x31" class="square black_square black_checker"> </div>
+        <div id="x32" class="square black_square" onclick="handle_click(this.id)"> 32</div>
         <div class="square white_square"> </div>
-        <div id="x30" class="square black_square white_checker"> </div>
+        <div id="x31" class="square black_square black_checker king" onclick="handle_click(this.id)"> 31</div>
         <div class="square white_square"> </div>
-        <div id="x29" class="square black_square"> </div>
+        <div id="x30" class="square black_square white_checker king" onclick="handle_click(this.id)"> 30</div>
         <div class="square white_square"> </div>
+        <div id="x29" class="square black_square" onclick="handle_click(this.id)"> 29</div>
         <div class="clear_float"> </div>
         
+        <div id="x28" class="square black_square" onclick="handle_click(this.id)"> 28</div>
         <div class="square white_square"> </div>
-        <div id="x28" class="square black_square"> </div>
+        <div id="x27" class="square black_square" onclick="handle_click(this.id)"> 27</div>
         <div class="square white_square"> </div>
-        <div id="x27" class="square black_square"> </div>
+        <div id="x26" class="square black_square" onclick="handle_click(this.id)"> 26</div>
         <div class="square white_square"> </div>
-        <div id="x26" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x25" class="square black_square"> </div>
-        <div class="clear_float"> </div>
-    
-        <div id="x24" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x23" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x22" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x21" class="square black_square"> </div>
+        <div id="x25" class="square black_square" onclick="handle_click(this.id)"> 25</div>
         <div class="square white_square"> </div>
         <div class="clear_float"> </div>
     
         <div class="square white_square"> </div>
-        <div id="x20" class="square black_square"> </div>
+        <div id="x24" class="square black_square" onclick="handle_click(this.id)"> 24</div>
         <div class="square white_square"> </div>
-        <div id="x19" class="square black_square"> </div>
+        <div id="x23" class="square black_square" onclick="handle_click(this.id)"> 23</div>
         <div class="square white_square"> </div>
-        <div id="x18" class="square black_square"> </div>
+        <div id="x22" class="square black_square" onclick="handle_click(this.id)"> 22</div>
         <div class="square white_square"> </div>
-        <div id="x17" class="square black_square"> </div>
+        <div id="x21" class="square black_square" onclick="handle_click(this.id)"> 21</div>
         <div class="clear_float"> </div>
     
-        <div id="x16" class="square black_square"> </div>
+        <div id="x20" class="square black_square" onclick="handle_click(this.id)"> 20</div>
         <div class="square white_square"> </div>
-        <div id="x15" class="square black_square"> </div>
+        <div id="x19" class="square black_square" onclick="handle_click(this.id)"> 19</div>
         <div class="square white_square"> </div>
-        <div id="x14" class="square black_square"> </div>
+        <div id="x18" class="square black_square" onclick="handle_click(this.id)"> 18</div>
         <div class="square white_square"> </div>
-        <div id="x13" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div class="clear_float"> </div>
-    
-        <div class="square white_square"> </div>
-        <div id="x12" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x11" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x10" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x9" class="square black_square"> </div>
-        <div class="clear_float"> </div>
-    
-        <div id="x8" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x7" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x6" class="square black_square"> </div>
-        <div class="square white_square"> </div>
-        <div id="x5" class="square black_square"> </div>
+        <div id="x17" class="square black_square" onclick="handle_click(this.id)"> 17</div>
         <div class="square white_square"> </div>
         <div class="clear_float"> </div>
     
         <div class="square white_square"> </div>
-        <div id="x4" class="square black_square"> </div>
+        <div id="x16" class="square black_square" onclick="handle_click(this.id)"> 16</div>
         <div class="square white_square"> </div>
-        <div id="x3" class="square black_square"> </div>
+        <div id="x15" class="square black_square" onclick="handle_click(this.id)"> 15</div>
         <div class="square white_square"> </div>
-        <div id="x2" class="square black_square"> </div>
+        <div id="x14" class="square black_square" onclick="handle_click(this.id)"> 14</div>
         <div class="square white_square"> </div>
-        <div id="x1" class="square black_square"> x</div>
+        <div id="x13" class="square black_square" onclick="handle_click(this.id)"> 13</div>
+        <div class="clear_float"> </div>
+    
+        <div id="x12" class="square black_square" onclick="handle_click(this.id)"> 12</div>
+        <div class="square white_square"> </div>
+        <div id="x11" class="square black_square" onclick="handle_click(this.id)"> 11</div>
+        <div class="square white_square"> </div>
+        <div id="x10" class="square black_square" onclick="handle_click(this.id)"> 10</div>
+        <div class="square white_square"> </div>
+        <div id="x9" class="square black_square" onclick="handle_click(this.id)"> 9</div>
+        <div class="square white_square"> </div>
+        
+        <div class="clear_float"> </div>
+    
+        <div class="square white_square"> </div>
+        <div id="x8" class="square black_square" onclick="handle_click(this.id)"> 8</div>
+        <div class="square white_square"> </div>
+        <div id="x7" class="square black_square" onclick="handle_click(this.id)"> 7</div>
+        <div class="square white_square"> </div>
+        <div id="x6" class="square black_square" onclick="handle_click(this.id)"> 6</div>
+        <div class="square white_square"> </div>
+        <div id="x5" class="square black_square" onclick="handle_click(this.id)"> 5</div>
+        <div class="clear_float"> </div>
+    
+        <div id="x4" class="square black_square" onclick="handle_click(this.id)"> 4</div>
+        <div class="square white_square"> </div>
+        <div id="x3" class="square black_square" onclick="handle_click(this.id)"> 3</div>
+        <div class="square white_square"> </div>
+        <div id="x2" class="square black_square" onclick="handle_click(this.id)"> 2</div>
+        <div class="square white_square"> </div>
+        <div id="x1" class="square black_square" onclick="handle_click(this.id)"> 1</div>
+        <div class="square white_square"> </div>
+        
         <div class="clear_float"> </div>
     
     </div>
@@ -133,4 +137,5 @@
     <button onclick="delete_all()">Delete all games</button>
     <input id="move-field" type="text"><button onclick="move()">Move</button>
     <h3>Possible moves [from, to]: <span id="moves"></span></h3>
+    <h3 style="color:red" id="error-msg"></h3>
 </body>

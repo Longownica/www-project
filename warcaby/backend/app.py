@@ -1,6 +1,5 @@
 import os
 import pickle
-import json
 from pprint import pprint
 from xmlrpc.client import Boolean
 from fastapi import FastAPI, Body, HTTPException, status
@@ -55,8 +54,8 @@ class GameStateDb(BaseModel):
 def get_pieces(game: Game) -> List[Piece]:
     pprint(vars(game))
     pprint(vars(game.board))
-    for piece in game.board.pieces:
-        pprint(vars(piece))
+    #for piece in game.board.pieces:
+    #    pprint(vars(piece))
 
     pieces = []
     for piece in game.board.pieces:
@@ -87,6 +86,16 @@ async def update_game_state(id: str, game: Game):
     )
     await games.replace_one({'_id': ObjectId(id)}, new_state.dict())
 
+def game_state_from_game(id: str, is_white:bool, game: Game) -> GameState:
+    return GameState(
+        id=id,
+        pieces=get_pieces(game),
+        finished=game.is_over(),
+        you_white=is_white,
+        whites_turn=game.board.player_turn == 1,
+        possible_moves=game.board.get_possible_moves()
+    )
+
 @app.get("/start", response_model=GameState)
 async def start_game():
     result = await games.find_one({'finished': {'$ne': True}})
@@ -95,20 +104,22 @@ async def start_game():
         game = Game()
         game_state_db = GameStateDb(pkl=Binary(pickle.dumps(game)), finished=False)
         inserted = await games.insert_one(game_state_db.dict())
-        possible = game.get_possible_moves()
-        response = GameState(id=str(inserted.inserted_id), pieces=get_pieces(game), finished=False, you_white=True, whites_turn=game.whose_turn() == 1, possible_moves=possible)
-        return response
+        return game_state_from_game(str(inserted.inserted_id), True, game)
     # return existing game
     else:
         id = result['_id']
         game: Game = pickle.loads(result['pkl'])
-        finished = result['finished']
-        you_white = False
-        whites_turn = game.whose_turn() == 1
-        possible = game.get_possible_moves()
-        return GameState(id=str(id), pieces=get_pieces(game), finished=finished, you_white=you_white, whites_turn=whites_turn, possible_moves=possible)
+        is_white = False
+        return game_state_from_game(str(id), is_white, game)
         
-@app.put("/move", response_model=GameState)
+@app.get("/{id}", response_model=GameState)
+async def get_game(id: str, is_white: bool):
+    game = await get_game_from_id(id)
+    if game is None:
+        raise HTTPException(status_code=404, detail="Game not found")
+    return game_state_from_game(id, is_white, game)
+
+@app.put("/{id}/move", response_model=GameState)
 async def move(id: str, is_white: bool, from_field: int, to_field: int):
     game: Game = await get_game_from_id(id)
     if game is None:
@@ -123,7 +134,13 @@ async def move(id: str, is_white: bool, from_field: int, to_field: int):
     #update possible moves
     possible_moves = game.get_possible_moves()
 
-    return GameState(id=id, pieces=get_pieces(game), finished=game.is_over(), you_white=is_white, whites_turn=game.whose_turn() == 1, possible_moves=possible_moves)
+    return game_state_from_game(id, is_white, game)
+
+@app.delete("/all")
+async def delete_all_games():
+    pprint(dir(games))
+    games.drop()
+    pass
 
 @app.delete("/{id}")
 async def delete_game(id: str):
@@ -131,6 +148,3 @@ async def delete_game(id: str):
     if result.deleted_count == 0:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Game not found")
 
-@app.delete("/all")
-async def delete_all_games():
-    pass
